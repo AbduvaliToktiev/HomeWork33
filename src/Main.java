@@ -1,48 +1,57 @@
-import java.util.*;
+import java.util.*; // Использование библиотеки
 
-public class Main {
-    public static void main(String[] args) {
-        YearMonth[] yearMonthsMass = YearMonth.values();
-        System.out.println("Массив: " + Arrays.toString(yearMonthsMass));
-        overload(yearMonthsMass);
-        ArrayList<YearMonth> yearMonthsArrayList = new ArrayList<>(List.of(YearMonth.values()));
-        System.out.println("ArrayList: " + yearMonthsArrayList);
-        overload(yearMonthsArrayList);
-        LinkedList<YearMonth> yearMonthsLinkedList = new LinkedList<>(List.of(YearMonth.values()));
-        System.out.println("LinkedList: " + yearMonthsLinkedList);
-        overload(yearMonthsLinkedList);
-    }
+// Публичный класс Main
+public class Main { // Тело класса
+    // Основной метод программы
+    public static void main(String[] args) { // Тело метода
+        YearMonth[] yearMonthsMass = YearMonth.values(); // Массив с месяцами
+        System.out.println("Массив: " + Arrays.toString(yearMonthsMass)); // Вывод массива в консоль
+        overload(yearMonthsMass); // Метод для массива
+        ArrayList<YearMonth> yearMonthsArrayList = new ArrayList<>(List.of(YearMonth.values())); // ArrayList список месяцов
+        System.out.println("ArrayList: " + yearMonthsArrayList); // Вывлод списка в консоль
+        overload(yearMonthsArrayList); // Метод для ArrayList
+        LinkedList<YearMonth> yearMonthsLinkedList = new LinkedList<>(List.of(YearMonth.values())); // LinkedList список месяцов
+        System.out.println("LinkedList: " + yearMonthsLinkedList); // Вывод списка в консоль
+        overload(yearMonthsLinkedList);// Метод для LinkedList
+    } // Закрытие тело основного метода
 
-    private static void overload(YearMonth[] yearMonthsMass) {
-        System.out.println("Массив после сортировки:");
-        int length = yearMonthsMass.length;
-        String obmen;
+    // Приватный перегруженный метод overload, который принимает массив
+    private static void overload(YearMonth[] yearMonthsMass) { // Тело метода
+        System.out.println("Массив после сортировки:"); // Сообщение, которое выведется в консоль
+        int length = yearMonthsMass.length; // Переменные для обмена
+        String obmen; // Переменные для обмена
 
-        for (int i = 0; i < length / 2; i++) {
+        // Кусок кода кода который меняет все Энамки местами
+        for (int i = 0; i < length / 2; i++) { // Тело цикла
             obmen = String.valueOf(yearMonthsMass[length - i - 1]);
             yearMonthsMass[length - i - 1] = yearMonthsMass[i];
             yearMonthsMass[i] = YearMonth.valueOf(obmen);
-        }
-        for (int i = 0; i < yearMonthsMass.length; i++) {
+        } // Закрывает тело цикла
+        // Цикл для вывода массива после сортировки
+        for (int i = 0; i < yearMonthsMass.length; i++) { // Тело цикла
             System.out.println(yearMonthsMass[i]);
-        }
-    }
+        } // Закрывает тело цикла
+    } // Закрывает тело метода для массива
 
-    private static void overload(ArrayList<YearMonth> yearMonthArrayList) {
-        yearMonthArrayList.sort(Collections.reverseOrder());
+    // Приватный перегруженный метод overload, который принимает ArrayList
+    private static void overload(ArrayList<YearMonth> yearMonthArrayList) { // Тело метода
+        yearMonthArrayList.sort(Collections.reverseOrder()); // В данной строке мы сортируем все Энамки задом на перёд
         /* Sorted List*/
-        System.out.println("ArrayList После сортровки: ");
-        for (YearMonth yearMonth : yearMonthArrayList) {
-            System.out.println(yearMonth);
-        }
-    }
+        System.out.println("ArrayList После сортровки: "); // Сообщение в консоль
+        // Цикл для выведения уже отсортированного списка
+        for (YearMonth yearMonth : yearMonthArrayList) { // Тело Цикла
+            System.out.println(yearMonth); // Сообщение в консоль
+        } // Закрывает тело цикла
+    } // Закрывает тело метода для ArrayList
 
-    private static void overload(LinkedList<YearMonth> yearMonthLinkedList) {
-        yearMonthLinkedList.sort(Collections.reverseOrder());
+    // Приватный перегруженный метод overload, который принимает LinkedList
+    private static void overload(LinkedList<YearMonth> yearMonthLinkedList) { // Тело метода
+        yearMonthLinkedList.sort(Collections.reverseOrder()); // В данной строке мы сортируем все Энамки задом на перёд
         /* Sorted List*/
-        System.out.println("LinkedList После сортровки: ");
-        for (YearMonth yearMonth : yearMonthLinkedList) {
-            System.out.println(yearMonth);
-        }
-    }
-}
+        System.out.println("LinkedList После сортровки: "); // Сообщение в консоль
+        // Цикл для выведения уже отсортированного списка
+        for (YearMonth yearMonth : yearMonthLinkedList) { // Тело Цикла
+            System.out.println(yearMonth); // Сообщение в консоль
+        } // Закрывает тело цикла
+    } // Закрывает тело метода для LinkedList
+} // Закрывает тело класса
