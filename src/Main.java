@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         YearMonth[] yearMonthsMass = YearMonth.values();
         System.out.println("Массив: " + Arrays.toString(yearMonthsMass));
-        //  overload(yearMonthsMass);
+        overload(yearMonthsMass);
         ArrayList<YearMonth> yearMonthsArrayList = new ArrayList<>(List.of(YearMonth.values()));
         System.out.println("ArrayList: " + yearMonthsArrayList);
         overload(yearMonthsArrayList);
@@ -14,12 +14,18 @@ public class Main {
     }
 
     private static void overload(YearMonth[] yearMonthsMass) {
+        System.out.println("Массив после сортировки:");
+        int length = yearMonthsMass.length;
+        String obmen;
+
+        for (int i = 0; i < length / 2; i++) {
+            obmen = String.valueOf(yearMonthsMass[length - i - 1]);
+            yearMonthsMass[length - i - 1] = yearMonthsMass[i];
+            yearMonthsMass[i] = YearMonth.valueOf(obmen);
+        }
         for (int i = 0; i < yearMonthsMass.length; i++) {
             System.out.println(yearMonthsMass[i]);
         }
-        System.out.println();
-
-      //  int length =
     }
 
     private static void overload(ArrayList<YearMonth> yearMonthArrayList) {
